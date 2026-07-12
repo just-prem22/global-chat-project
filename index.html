@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Project</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Join Screen -->
+    <div id="joinScreen" class="join-screen">
+
+        <div class="join-card">
+            <h1>Global Chat Project</h1>
+            <p>Join the conversation</p>
+
+            <input
+                id="usernameInput"
+                type="text"
+                placeholder="Enter your name"
+                maxlength="20"
+            >
+
+            <button id="joinBtn">
+                Join Chat
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Chat App -->
+    <div id="chatApp" class="app" style="display:none;">
+
+        <header class="header">
+            <h2>Global Chat Project</h2>
+            <span>Connect with everyone</span>
+        </header>
+
+        <main id="chat" class="chat-container"></main>
+
+        <div id="replyBox" class="reply-box" style="display:none;">
+    <div class="reply-box-content">
+        <strong id="replyUser"></strong>
+        <div id="replyText"></div>
+    </div>
+
+    <button id="cancelReply">✕</button>
+</div>
+
+        <footer class="input-area">
+            <input
+                id="message"
+                type="text"
+                placeholder="Write something..."
+                autocomplete="off"
+            >
+
+            <button id="sendBtn">Send</button>
+        </footer>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
