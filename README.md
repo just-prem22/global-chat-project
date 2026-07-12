@@ -5,3 +5,14 @@
 ![Socket.IO](https://img.shields.io/badge/Socket.IO-4.x-black?logo=socketdotio)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
+---
+## ✨ Features
+
+- 🌍 Real-time messaging using Socket.IO
+- 👤 Join chat with a custom username
+- 💬 Instant message delivery
+- ↩️ Reply to specific messages
+- 📱 Responsive user interface
+- ⌨️ Send messages using the Enter key
+- 🎨 Clean and modern UI design
+- ⚡ Lightweight Node.js + Express backend
