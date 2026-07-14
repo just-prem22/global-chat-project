@@ -48,7 +48,6 @@ The project focuses on understanding the fundamentals of:
 
 </p>
 
-> **Note:** Replace the above images with actual screenshots from the project.
 
 ---
 
