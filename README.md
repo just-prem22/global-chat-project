@@ -40,7 +40,7 @@ The project focuses on understanding the fundamentals of:
 
 <br><br>
 
-<img src="images/chat-screen.png" width="850">
+<img src="global chat image 04.png" width="350" >
 
 <br><br>
 
