@@ -44,7 +44,7 @@ The project focuses on understanding the fundamentals of:
 
 <br><br>
 
-<img src="images/reply-feature.png" width="850">
+<img src="global chat image 05.png" width="600">
 
 </p>
 
