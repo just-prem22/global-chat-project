@@ -36,7 +36,7 @@ The project focuses on understanding the fundamentals of:
 
 <p align="center">
 
-<img src="images/join-screen.png" width="850">
+<img src="global chat image 03.png" width="350" align=left>
 
 <br><br>
 
