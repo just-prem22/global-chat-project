@@ -36,15 +36,15 @@ The project focuses on understanding the fundamentals of:
 
 <p align="center">
 
-<img src="global chat image 03.png" width="350" align=left>
+<img src="global chat image 03.png" width="350">
 
-<br><br>
+
 
 <img src="global chat image 04.png" width="350" >
 
-<br><br>
 
-<img src="global chat image 05.png" width="600">
+
+<img src="global chat image 05.png" width="500">
 
 </p>
 
