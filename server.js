@@ -14,6 +14,10 @@ io.on("connection", (socket) => {
   socket.on("chat-message", (data) => {
     io.emit("chat-message", data);
   });
+
+  socket.on("reaction", (data) => {
+    io.emit("reaction", data);
+  });
 });
 
 server.listen(3000, () => {
