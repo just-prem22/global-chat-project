@@ -58,9 +58,7 @@ body {
     background: #fafafa;
 }
 
-/* ========================= */
-/* MESSAGE BUBBLES           */
-/* ========================= */
+
 
 .message {
     position: relative;
@@ -91,9 +89,7 @@ body {
     opacity: 0.75;
 }
 
-/* ========================= */
-/* REPLY PREVIEW IN MESSAGE  */
-/* ========================= */
+
 
 .reply-preview {
     margin-bottom: 8px;
@@ -126,9 +122,7 @@ body {
     text-overflow: ellipsis;
 }
 
-/* ========================= */
-/* HOVER REPLY BUTTON        */
-/* ========================= */
+
 
 .reply-btn {
     position: absolute;
@@ -158,9 +152,6 @@ body {
     right: auto;
 }
 
-/* ========================= */
-/* REPLY BOX ABOVE INPUT     */
-/* ========================= */
 
 .reply-box {
     display: flex;
@@ -204,9 +195,6 @@ body {
     color: #111;
 }
 
-/* ========================= */
-/* INPUT AREA                */
-/* ========================= */
 
 .input-area {
     display: flex;
@@ -244,9 +232,7 @@ body {
     background: #2563eb;
 }
 
-/* ========================= */
-/* MOBILE                    */
-/* ========================= */
+
 
 @media (max-width: 768px) {
     .message {
@@ -265,9 +251,7 @@ body {
     }
 }
 
-/* ========================= */
-/* ANIMATION                 */
-/* ========================= */
+
 
 @keyframes pop {
     from {
@@ -280,9 +264,7 @@ body {
         transform: translateY(0);
     }
 }
-/* ========================= */
-/* JOIN SCREEN               */
-/* ========================= */
+
 
 .join-screen {
     position: fixed;
@@ -365,9 +347,7 @@ body {
     background: #2563eb;
 
 }
-/* ========================= */
-/* REACTIONS                 */
-/* ========================= */
+
 
 .reaction-badges {
     display: flex;
