@@ -36,6 +36,9 @@ const cancelReply = document.getElementById("cancelReply");
 
 let replyingTo = null;
 
+const messageReactions = {}; // { messageId: { emoji: Set(usernames) } }
+const REACTION_EMOJIS = ["👍", "❤️", "😂", "😮", "😢", "🙏"];
+
 cancelReply.onclick = () => {
     replyingTo = null;
     replyBox.style.display = "none";
@@ -77,6 +80,8 @@ socket.on("chat-message", (msg) => {
     else
         div.classList.add("left");
 
+    div.dataset.id = msg.id;
+
     let html = "";
 
     if (msg.reply) {
@@ -93,8 +98,14 @@ socket.on("chat-message", (msg) => {
         <div class="name">${msg.user}</div>
         <div>${msg.text}</div>
 
+        <div class="reaction-badges"></div>
+
         <button class="reply-btn">
             ↩
+        </button>
+
+        <button class="react-btn">
+            😀
         </button>
     `;
 
@@ -117,6 +128,11 @@ socket.on("chat-message", (msg) => {
         replyBox.style.display = "flex";
 
         input.focus();
+    };
+
+    div.querySelector(".react-btn").onclick = (e) => {
+        e.stopPropagation();
+        openReactionPicker(div, msg.id);
     };
 
     // Mobile long press (600ms)
@@ -152,4 +168,93 @@ socket.on("chat-message", (msg) => {
     chat.appendChild(div);
 
     chat.scrollTop = chat.scrollHeight;
+});
+function openReactionPicker(messageDiv, messageId) {
+
+    const existing = document.querySelector(".emoji-picker");
+    if (existing) existing.remove();
+
+    const picker = document.createElement("div");
+    picker.classList.add("emoji-picker");
+
+    REACTION_EMOJIS.forEach((emoji) => {
+        const btn = document.createElement("button");
+        btn.textContent = emoji;
+        btn.onclick = (e) => {
+            e.stopPropagation();
+            sendReaction(messageId, emoji);
+            picker.remove();
+        };
+        picker.appendChild(btn);
+    });
+
+    messageDiv.appendChild(picker);
+
+    setTimeout(() => {
+        document.addEventListener("click", function closePicker() {
+            picker.remove();
+            document.removeEventListener("click", closePicker);
+        });
+    }, 0);
+}
+
+function sendReaction(messageId, emoji) {
+    socket.emit("reaction", {
+        messageId: messageId,
+        emoji: emoji,
+        user: username
+    });
+}
+
+function renderReactions(messageId) {
+
+    const div = document.querySelector(`.message[data-id="${messageId}"]`);
+    if (!div) return;
+
+    const container = div.querySelector(".reaction-badges");
+    container.innerHTML = "";
+
+    const data = messageReactions[messageId];
+    if (!data) return;
+
+    Object.keys(data).forEach((emoji) => {
+        const users = data[emoji];
+        if (users.size === 0) return;
+
+        const badge = document.createElement("span");
+        badge.classList.add("reaction-badge");
+        if (users.has(username)) badge.classList.add("mine");
+
+        badge.textContent = `${emoji} ${users.size}`;
+
+        badge.onclick = (e) => {
+            e.stopPropagation();
+            sendReaction(messageId, emoji);
+        };
+
+        container.appendChild(badge);
+    });
+}
+
+socket.on("reaction", (data) => {
+
+    const { messageId, emoji, user } = data;
+
+    if (!messageReactions[messageId]) {
+        messageReactions[messageId] = {};
+    }
+
+    if (!messageReactions[messageId][emoji]) {
+        messageReactions[messageId][emoji] = new Set();
+    }
+
+    const users = messageReactions[messageId][emoji];
+
+    if (users.has(user)) {
+        users.delete(user); // clicking again removes your reaction
+    } else {
+        users.add(user);
+    }
+
+    renderReactions(messageId);
 });
