@@ -58,7 +58,9 @@ body {
     background: #fafafa;
 }
 
-
+/* ========================= */
+/* MESSAGE BUBBLES           */
+/* ========================= */
 
 .message {
     position: relative;
@@ -89,7 +91,9 @@ body {
     opacity: 0.75;
 }
 
-
+/* ========================= */
+/* REPLY PREVIEW IN MESSAGE  */
+/* ========================= */
 
 .reply-preview {
     margin-bottom: 8px;
@@ -122,7 +126,9 @@ body {
     text-overflow: ellipsis;
 }
 
-
+/* ========================= */
+/* HOVER REPLY BUTTON        */
+/* ========================= */
 
 .reply-btn {
     position: absolute;
@@ -152,6 +158,9 @@ body {
     right: auto;
 }
 
+/* ========================= */
+/* REPLY BOX ABOVE INPUT     */
+/* ========================= */
 
 .reply-box {
     display: flex;
@@ -195,6 +204,9 @@ body {
     color: #111;
 }
 
+/* ========================= */
+/* INPUT AREA                */
+/* ========================= */
 
 .input-area {
     display: flex;
@@ -232,7 +244,9 @@ body {
     background: #2563eb;
 }
 
-
+/* ========================= */
+/* MOBILE                    */
+/* ========================= */
 
 @media (max-width: 768px) {
     .message {
@@ -251,7 +265,9 @@ body {
     }
 }
 
-
+/* ========================= */
+/* ANIMATION                 */
+/* ========================= */
 
 @keyframes pop {
     from {
@@ -264,7 +280,9 @@ body {
         transform: translateY(0);
     }
 }
-
+/* ========================= */
+/* JOIN SCREEN               */
+/* ========================= */
 
 .join-screen {
     position: fixed;
@@ -347,7 +365,9 @@ body {
     background: #2563eb;
 
 }
-
+/* ========================= */
+/* REACTIONS                 */
+/* ========================= */
 
 .reaction-badges {
     display: flex;
@@ -401,6 +421,35 @@ body {
     right: auto;
 }
 
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: -120px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #e0524d;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.message:hover .delete-btn {
+    opacity: 1;
+}
+
+.right .delete-btn {
+    left: -120px;
+    right: auto;
+}
+
 .emoji-picker {
     position: absolute;
     bottom: 100%;
@@ -437,6 +486,16 @@ body {
 
     .right .react-btn {
         left: 44px;
+        right: auto;
+    }
+
+    .delete-btn {
+        opacity: 1;
+        right: 80px;
+    }
+
+    .right .delete-btn {
+        left: 80px;
         right: auto;
     }
 }
