@@ -18,6 +18,10 @@ io.on("connection", (socket) => {
   socket.on("reaction", (data) => {
     io.emit("reaction", data);
   });
+
+  socket.on("delete-message", (data) => {
+    io.emit("delete-message", data);
+  });
 });
 
 server.listen(3000, () => {
