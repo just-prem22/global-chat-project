@@ -107,6 +107,12 @@ socket.on("chat-message", (msg) => {
         <button class="react-btn">
             😀
         </button>
+
+        ${msg.user === username ? `
+        <button class="delete-btn">
+            🗑
+        </button>
+        ` : ""}
     `;
 
     div.innerHTML = html;
@@ -134,6 +140,16 @@ socket.on("chat-message", (msg) => {
         e.stopPropagation();
         openReactionPicker(div, msg.id);
     };
+
+    const deleteBtn = div.querySelector(".delete-btn");
+    if (deleteBtn) {
+        deleteBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (confirm("Delete this message?")) {
+                socket.emit("delete-message", { messageId: msg.id });
+            }
+        };
+    }
 
     // Mobile long press (600ms)
     let timer;
@@ -257,4 +273,13 @@ socket.on("reaction", (data) => {
     }
 
     renderReactions(messageId);
+});
+socket.on("delete-message", (data) => {
+
+    const { messageId } = data;
+
+    const div = document.querySelector(`.message[data-id="${messageId}"]`);
+    if (div) div.remove();
+
+    delete messageReactions[messageId];
 });
