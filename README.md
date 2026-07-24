@@ -558,6 +558,7 @@ Planned enhancements include:
 - ⌨️ Typing Indicator
 - 📖 Read Receipts
 - ⏰ Message Timestamps
+- 🗑️ Deleting Message
 - 🔔 Notifications
 - 💬 Multiple Chat Rooms
 - 👥 Group Chats
