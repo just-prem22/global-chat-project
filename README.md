@@ -57,6 +57,7 @@ The project focuses on understanding the fundamentals of:
 - ⚡ Instant message broadcasting using Socket.IO
 - 👤 Join chat with a custom username
 - 💬 Reply to any previous message
+- ❤️ React to any message
 - 📱 Responsive interface
 - 🎨 Modern clean UI
 - ⌨️ Send messages using Enter key
