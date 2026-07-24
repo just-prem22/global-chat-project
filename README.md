@@ -58,6 +58,7 @@ The project focuses on understanding the fundamentals of:
 - 👤 Join chat with a custom username
 - 💬 Reply to any previous message
 - ❤️ React to any message
+- 🗑️ Delete any message
 - 📱 Responsive interface
 - 🎨 Modern clean UI
 - ⌨️ Send messages using Enter key
