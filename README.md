@@ -561,7 +561,7 @@ Planned enhancements include:
 - 👥 Group Chats
 - 👤 User Profiles
 - 📸 Profile Pictures
-- ❤️ Message Reactions
+- ❤️ Message Reactions(completed✅)
 - 📌 Pinned Messages
 - 🔍 Message Search
 - 📦 MongoDB Database
